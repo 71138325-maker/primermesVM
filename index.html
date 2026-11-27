@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#805c78">
+<title>Para mi amor, Valeria ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap');
+
+:root {
+  --mauve: #805b78;
+  --dark: #633c5b;
+  --cream: #f5e8d4;
+  --pink: #e9b6cb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--mauve);
+  color: #fff4ed;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+/* FLORES LATERALES */
+
+/* FLORES ORIGINALES DE VALERIA */
+
+.flower-border {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 76px;
+  z-index: 20;
+  pointer-events: none;
+
+  background-image: url("img/flores.png");
+  background-repeat: repeat-y;
+  background-size: 152px auto;
+  background-position: center top;
+
+  /* Mantener los colores originales */
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+.flower-border.left {
+  left: 0;
+}
+
+.flower-border.right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* Optimización para celulares */
+@media (max-width: 480px) {
+  .flower-border {
+    width: 54px;
+    background-size: 108px auto;
+  }
+
+  main {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* PANTALLA DEL SOBRE */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background:
+    radial-gradient(ellipse at 20% 20%, #b72b69 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 80%, #9c174e 0%, transparent 45%),
+    #740c3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease, visibility 1s;
+}
+
+#intro.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-content {
+  text-align: center;
+  width: 85%;
+  max-width: 360px;
+  cursor: pointer;
+  animation: float 3s ease-in-out infinite;
+}
+
+.open-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #f8d9e7;
+}
+
+.envelope {
+  width: 100%;
+  aspect-ratio: 1.35;
+  position: relative;
+  background: linear-gradient(140deg,#f4d9d9,#dba9b3);
+  border-radius: 8px;
+  box-shadow: 0 15px 35px #390d2d88;
+  display: grid;
+  place-items: center;
+}
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(35deg, transparent 49%, #c98c9f 50%);
+  clip-path: polygon(0 100%, 50% 43%, 100% 100%);
+}
+
+.envelope:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg,#f7e1e1,#dbaab8);
+  clip-path: polygon(0 0,100% 0,50% 62%);
+}
+
+.seal {
+  position: absolute;
+  z-index: 2;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: radial-gradient(circle,#a91e51,#73102f);
+  box-shadow: 0 3px 7px #6c1738;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  color: #f2c6d3;
+}
+
+.intro-hint {
+  font-size: 14px;
+  margin-top: 22px;
+  letter-spacing: 2px;
+  color: #f6cbdc;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* CONTENIDO */
+
+main {
+  max-width: 650px;
+  margin: auto;
+  padding: 0 35px;
+}
+
+section {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 65px 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 14px;
+  color: #efd4df;
+}
+
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(65px, 17vw, 105px);
+  font-weight: normal;
+  color: #f7dfd5;
+  text-shadow: 0 3px 8px #4e304d66;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+.love-button {
+  border: 1px solid #d5b5c8;
+  border-radius: 40px;
+  background: #663c5e;
+  color: #f8e6ec;
+  padding: 12px 34px;
+  margin-top: 36px;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: .3s;
+  box-shadow: 0 5px 15px #40233e44;
+}
+
+.love-button:active {
+  transform: scale(.94);
+}
+
+/* VIDEO */
+
+.video-frame {
+  width: 100%;
+  max-width: 360px;
+  padding: 5px;
+  background: #f0dfd0;
+  box-shadow: 0 10px 30px #42263c55;
+  margin-top: 30px;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  max-height: 65svh;
+  aspect-ratio: 9/16;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-caption {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  margin-top: 25px;
+}
+
+/* COLLAGE */
+
+.gallery-section {
+  justify-content: flex-start;
+  padding-top: 75px;
+}
+
+.gallery-title {
+  align-self: flex-start;
+  text-align: left;
+  font-size: 27px;
+  line-height: 1.1;
+  letter-spacing: 3px;
+  font-weight: normal;
+  margin: 15px 0 35px;
+}
+
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 17px;
+  align-items: center;
+}
+
+.polaroid {
+  background: #f7e8d7;
+  padding: 7px 7px 24px;
+  box-shadow: 0 7px 16px #34213966;
+  transform: rotate(-5deg);
+  transition: transform .4s;
+}
+
+.polaroid:nth-child(2n) {
+  transform: rotate(6deg);
+  margin-top: 30px;
+}
+
+.polaroid:nth-child(3n) {
+  transform: rotate(3deg);
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid p {
+  color: #79596d;
+  font-family: 'Great Vibes', cursive;
+  font-size: 17px;
+  margin-top: 7px;
+}
+
+/* CARTA */
+
+.letter-section {
+  padding: 60px 0;
+}
+
+.letter {
+  background:
+    radial-gradient(ellipse at top, #fff5df, transparent 75%),
+    #f0dfc2;
+  color: #75576a;
+  width: 100%;
+  padding: 45px 23px;
+  box-shadow: 0 8px 25px #39213d77;
+  border: 7px double #d6bd9c;
+  outline: 1px solid #f5e6cb;
+  outline-offset: -12px;
+  position: relative;
+}
+
+.letter:before,
+.letter:after {
+  content: "❀  ✧  ❀  ✧  ❀";
+  display: block;
+  font-size: 20px;
+  color: #b99a83;
+  letter-spacing: 5px;
+}
+
+.letter h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 39px;
+  font-weight: normal;
+  margin: 25px 0;
+}
+
+.letter p {
+  text-align: justify;
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 17px;
+}
+
+.signature {
+  text-align: right !important;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px !important;
+  margin-top: 25px;
+}
+
+/* ÚLTIMA SECCIÓN */
+
+.final-section {
+  min-height: 90svh;
+  justify-content: flex-start;
+  padding-top: 65px;
+}
+
+.final-section .gallery-title {
+  margin-bottom: 35px;
+}
+
+footer {
+  padding: 30px 0 55px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 27px;
+  color: #f3dce6;
+}
+
+@media (max-width: 380px) {
+  main { padding: 0 30px; }
+  .flower-border { width: 22px; }
+  .gallery { gap: 25px 12px; }
+  .letter { padding: 38px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<!-- FLORES -->
+<!-- FLORES LATERALES -->
+<div class="flower-border left" aria-hidden="true"></div>
+<div class="flower-border right" aria-hidden="true"></div>
+<!-- SOBRE DE ENTRADA -->
+<div id="intro" onclick="openLetter()">
+  <div class="intro-content">
+    <div class="open-text">Ábreme!</div>
+    <div class="envelope">
+      <div class="seal">♥</div>
+    </div>
+    <div class="intro-hint">Click para abrir</div>
+  </div>
+</div>
+
+<main>
+
+<!-- 1. PRESENTACIÓN -->
+<section id="home">
+  <div class="eyebrow">A la chica más bella y divina</div>
+  <h1 class="name">Valeria</h1>
+  <div class="subtitle">Feliz primer mes</div>
+  <button class="love-button" onclick="goTo('video')">
+    TE AMO
+  </button>
+</section>
+
+<!-- 2. VIDEO -->
+<section id="video">
+  <div class="eyebrow">Un recuerdito</div>
+  <h2 class="video-caption">Nuestros momentos</h2>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata"
+      poster="img/portada-video.jpg">
+      <source src="video/recuerdo.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+  </div>
+
+  <button class="love-button" onclick="goTo('fotos')">
+    FOTITOS
+  </button>
+</section>
+
+<!-- 3. PRIMER COLLAGE -->
+<section id="fotos" class="gallery-section">
+  <h2 class="gallery-title">NUESTRAS FOTOS<br>JUNTOS</h2>
+
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="img/foto1.jpg" alt="Nuestro recuerdo 1">
+      <p>Mi favorita</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto2.jpg" alt="Nuestro recuerdo 2">
+      <p>Hermosa</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto3.jpg" alt="Nuestro recuerdo 3">
+      <p>Nosotros</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto4.jpg" alt="Nuestro recuerdo 4">
+      <p>Para siempre</p>
+    </div>
+  </div>
+
+  <button class="love-button" onclick="goTo('carta')">
+    UNA CARTA
+  </button>
+</section>
+
+<!-- 4. CARTA -->
+<section id="carta" class="letter-section">
+  <article class="letter">
+    <h2>Para la persona más linda del mundo</h2>
+
+    <p>
+      En este nuestro primer mes quiero festejar por 
+      encontrar a la persona mas linda de todo el universo.
+      Aun nos quedan muchisimas cosas por vivir, te quiero 
+      agradecer por llegar a mi vida y dejarme entrar a la tuya.
+    </p>
+
+    <p>
+      Nuestros recuerdos juntos siempre van a estar en mi corazón
+      desde el primer momento que te vi mi sensación me dijo tómala.
+    </p>
+
+    <p>
+      Siempre estaré a tu lado amor mío, cuenta conmigo para todo así 
+      como yo quiero que estés a mi lado siempre mi linda y amada
+      compañera de vida.
+    </p>
+
+    <p>
+      No olvdes lo especial que eres para mi por siempre tu más fiel 
+      enamorado: 
+    </p>
+
+    <p class="signature">-Menphis Abad Neyra♡</p>
+  </article>
+
+  <button class="love-button" onclick="goTo('final')">
+    TE AMO
+  </button>
+</section>
+
+<!-- 5. COLLAGE FINAL -->
+<section id="final" class="final-section">
+  <h2 class="gallery-title">A LA CHICA MAS HERMOSA<br>
+    <span class="name" style="font-size:65px">Valeria</span>
+  </h2>
+
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="img/foto5.jpg" alt="Un recuerdo especial">
+      <p>Mi alegria</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto6.jpg" alt="Un momento juntos">
+      <p>Mi persona </p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto7.jpg" alt="Otro recuerdo">
+      <p>Mi amor</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="img/foto8.jpg" alt="Nuestro recuerdo">
+      <p>Siempre te elijo</p>
+    </div>
+  </div>
+
+  <button class="love-button" onclick="goTo('carta')">
+    VUELVE A VERLO (PORFI)
+  </button>
+</section>
+
+<footer>
+  Hecho con muchisimo amor para ti ♡
+</footer>
+
+</main>
+
+<script>
+function openLetter() {
+  const intro = document.getElementById('intro');
+  intro.classList.add('hidden');
+  document.body.classList.remove('locked');
+
+  setTimeout(() => {
+    intro.style.display = 'none';
+  }, 1100);
+}
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+</script>
+
+</body>
+</html>
