@@ -40,20 +40,41 @@ body.locked {
 
 /* FLORES LATERALES */
 
+
 /* FLORES ORIGINALES DE VALERIA */
 
 .flower-border {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 76px;
+  width: 24px;
   z-index: 20;
   pointer-events: none;
 
   background-image: url("img/flores.png");
   background-repeat: repeat-y;
-  background-size: 152px auto;
+  background-size: 48px auto;
   background-position: center top;
+
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+.flower-border.left {
+  left: 0;
+}
+
+.flower-border.right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* ESPACIO DEL CONTENIDO */
+main {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
 
   /* Mantener los colores originales */
   mix-blend-mode: normal;
